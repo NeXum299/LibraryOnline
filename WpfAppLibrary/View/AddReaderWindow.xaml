@@ -1,0 +1,58 @@
+﻿<Window x:Class="WpfAppLibrary.View.AddReaderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppLibrary.View"
+        mc:Ignorable="d"
+        Title="Регистрация читателя" Height="346" Width="756"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Canvas Background="#003470">
+        <TextBlock Text="Зарегистрировать читателя:" FontSize="40"
+               HorizontalAlignment="Left" Canvas.Left="127"
+               VerticalAlignment="Center" Canvas.Top="10"
+               Foreground="White"/>
+
+        <Canvas Background="#6B8C42" Width="547"
+            HorizontalAlignment="Left" Height="118"
+            VerticalAlignment="Center" Canvas.Left="110"
+            Canvas.Top="82">
+
+            <TextBlock Text="Имя:" FontSize="35"
+                   Canvas.Left="50" HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Canvas.Top="3"/>
+            <TextBox Width="354" Canvas.Left="148" Canvas.Top="17"
+                 Height="33" HorizontalAlignment="Left"
+                 VerticalAlignment="Center" Background="White"
+                 Text="{Binding NameAdd, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Email:" FontSize="35"
+                   Canvas.Left="36" Canvas.Top="63" 
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"/>
+            <TextBox Width="355" Canvas.Left="148" Canvas.Top="75"
+                 Height="33" HorizontalAlignment="Left"
+                 VerticalAlignment="Top" Background="White"
+                 Text="{Binding EmailAdd, UpdateSourceTrigger=PropertyChanged}"/>
+        </Canvas>
+
+        <Button Content="Добавить" Canvas.Left="110"
+            Canvas.Top="232" Height="66" Width="179"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" FontSize="25"
+            Command="{Binding AddReaderCommand}"
+            CommandParameter="{Binding
+            RelativeSource={RelativeSource
+            AncestorType=Window}}"/>
+
+        <Button Content="Отменить" Canvas.Left="478"
+            Canvas.Top="230" Height="68" Width="179"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top" FontSize="25"
+            Command="{Binding CloseWindowCommand}"
+            CommandParameter="{Binding
+            RelativeSource={RelativeSource
+            AncestorType=Window}}"/>
+    </Canvas>
+</Window>

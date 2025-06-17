@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "AspAppLibrary\\AspAppLibrary.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "WpfAppLibrary\\WpfAppLibrary.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

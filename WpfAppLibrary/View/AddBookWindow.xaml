@@ -1,0 +1,98 @@
+﻿<Window x:Class="WpfAppLibrary.View.AddBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppLibrary.View"
+        mc:Ignorable="d"
+        Title="Добавление книги" Height="505" Width="1032"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+    <Canvas Background="#003470">
+        <TextBlock Text="Добавить книгу:" FontSize="40"
+                   HorizontalAlignment="Left" Canvas.Left="372"
+                   VerticalAlignment="Center" Canvas.Top="10"
+                   Foreground="White"/>
+
+        <Canvas Background="#6B8C42" Width="820"
+                HorizontalAlignment="Left" Height="282"
+                VerticalAlignment="Center" Canvas.Left="110"
+                Canvas.Top="82">
+
+            <TextBlock Text="Название:" FontSize="35"
+                       Canvas.Left="115" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" Canvas.Top="5"/>
+            <TextBox x:Name="NameAdd" Width="355"
+                     Canvas.Left="293" Canvas.Top="17"
+                     Height="33" HorizontalAlignment="Center"
+                     VerticalAlignment="Top" Background="White"
+                     Text="{Binding TitleAdd, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Автор:" FontSize="35"
+                       Canvas.Left="172" Canvas.Top="56" 
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="AuthorAdd" Width="355"
+                     Canvas.Left="293" Canvas.Top="70"
+                     Height="33" HorizontalAlignment="Center"
+                     VerticalAlignment="Top" Background="White"
+                     Text="{Binding AuthorAdd, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Жанр:" FontSize="35"
+                       Canvas.Left="180" Canvas.Top="114"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="GenreAdd" Width="355"
+                     Canvas.Left="293" Canvas.Top="124"
+                     Height="34" Background="White"
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top"
+                     Text="{Binding GenreAdd, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Год публикации:" FontSize="35"
+                       Canvas.Left="10" Canvas.Top="172" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"/>
+            <TextBox x:Name="YearPublishedAdd" Width="355"
+                     Canvas.Left="293" Canvas.Top="186"
+                     Height="33" Background="White"
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top"
+                     Text="{Binding YearPublishedAdd,
+                UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBlock Text="Доступен:" FontSize="35"
+                       Canvas.Left="118" Canvas.Top="225"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"/>
+            <CheckBox x:Name="IsAvailableAdd"
+                      Canvas.Left="293" Canvas.Top="236"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      IsChecked="{Binding IsAvailableAdd, 
+                UpdateSourceTrigger=PropertyChanged}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+        </Canvas>
+
+        <Button Content="Применить" Canvas.Left="252"
+                Canvas.Top="396" Height="67" Width="179"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" FontSize="25"
+                Command="{Binding AddBookCommand}"
+                CommandParameter="{Binding
+            RelativeSource={RelativeSource
+            AncestorType=Window}}"/>
+
+        <Button Content="Отмена" Canvas.Left="627"
+                Canvas.Top="396" Height="68" Width="179"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" FontSize="25"
+                Command="{Binding CloseWindowCommand}"
+                CommandParameter="{Binding
+            RelativeSource={RelativeSource
+            AncestorType=Window}}"/>
+    </Canvas>
+</Window>
